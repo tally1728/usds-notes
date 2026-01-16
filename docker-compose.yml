@@ -6,3 +6,5 @@ services:
     volumes:
       - .:/app
       - /app/.venv
+    environment:
+      - UV_LINK_MODE=copy
