@@ -5,6 +5,14 @@ services:
       - "8888:8888"
     volumes:
       - .:/app
+      # .venvの隔離
       - /app/.venv
+      # UI設定：ホストのディレクトリに直接保存して Git 管理
+      - ./.jupyter_user_settings:/root/.jupyter/lab/user-settings
+      # 拡張機能等のデータ（永続化推奨）
+      - jupyter_data:/root/.local/share/jupyter
     environment:
       - UV_LINK_MODE=copy
+
+volumes:
+  jupyter_data:
