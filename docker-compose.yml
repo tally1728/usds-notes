@@ -4,15 +4,18 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - .:/app
-      # .venvの隔離
-      - /app/.venv
+      # Jupyterlab Notebooks
+      - ./notebooks:/app/notebooks
+      # パッケージ追加をローカルに反映したい場合のみ（任意）
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./uv.lock:/app/uv.lock
+      # .venvの隔離 with Named Volume
+      - venv:/app/.venv
       # UI設定：ホストのディレクトリに直接保存して Git 管理
       - ./.jupyter_user_settings:/root/.jupyter/lab/user-settings
-      # 拡張機能等のデータ（永続化推奨）
+      # 拡張機能等のデータ with Named Volume
       - jupyter_data:/root/.local/share/jupyter
-    environment:
-      - UV_LINK_MODE=copy
 
 volumes:
+  venv:
   jupyter_data:

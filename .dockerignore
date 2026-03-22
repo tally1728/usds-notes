@@ -1,5 +1,16 @@
-.venv
+# Git
 .git
-__pycache__
-*.pyc
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# JupyterLab
 .ipynb_checkpoints
+.jupyter
+.jupyter_user_settings/
