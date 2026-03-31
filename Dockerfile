@@ -1,10 +1,10 @@
 FROM ubuntu:25.10
 
 # パッケージリスト更新とアップグレードをセットで実行
-RUN apt-get update && apt-get upgrade -y \
-  && apt-get install -y --no-install-recommends \
-  ca-certificates \
-  && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get upgrade -y \
+#  && apt-get install -y --no-install-recommends \
+#  ca-certificates \
+#  && rm -rf /var/lib/apt/lists/*
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
