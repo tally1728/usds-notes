@@ -1,4 +1,4 @@
-FROM ubuntu:25.10
+FROM ubuntu:26.04
 
 # パッケージリスト更新とアップグレードをセットで実行
 #RUN apt-get update && apt-get upgrade -y \
